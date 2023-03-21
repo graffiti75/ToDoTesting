@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    namespace 'com.example.android.architecture.blueprints.todoapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.android.architecture.blueprints.todoapp"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Enables data binding.
+    buildFeatures {
+        dataBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$version_core"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
+//    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    // App dependencies
+    implementation "androidx.appcompat:appcompat:$version_app_compat"
+//    implementation "androidx.cardview:cardview:$cardVersion"
+    implementation "com.google.android.material:material:$version_material"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$version_swipe_refresh"
+//    implementation "androidx.recyclerview:recyclerview:$version_recycler_view"
+//    implementation "androidx.annotation:annotation:$androidXAnnotations"
+//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "com.jakewharton.timber:timber:$version_timber"
+//    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+
+    // Architecture Components
+    implementation "androidx.room:room-runtime:$version_room"
+    kapt "androidx.room:room-compiler:$version_room"
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$version_room"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$version_junit"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:$version_androidx_test_ext_kotlin_runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
+}
