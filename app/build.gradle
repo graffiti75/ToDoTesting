@@ -44,20 +44,11 @@ dependencies {
 
     implementation "androidx.core:core-ktx:$version_core"
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
-//    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
-
     // App dependencies
     implementation "androidx.appcompat:appcompat:$version_app_compat"
-//    implementation "androidx.cardview:cardview:$cardVersion"
     implementation "com.google.android.material:material:$version_material"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$version_swipe_refresh"
-//    implementation "androidx.recyclerview:recyclerview:$version_recycler_view"
-//    implementation "androidx.annotation:annotation:$androidXAnnotations"
-//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     implementation "com.jakewharton.timber:timber:$version_timber"
-//    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
 
     // Architecture Components
     implementation "androidx.room:room-runtime:$version_room"
