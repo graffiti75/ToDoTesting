@@ -68,4 +68,12 @@ dependencies {
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test.ext:junit:$version_androidx_test_ext_kotlin_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
+
+    // Add the following for InstantTaskExecutorRule class. https://stackoverflow.com/a/56073388
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$version_androidx_test_core"
+    testImplementation "org.robolectric:robolectric:$version_robolectric"
+    testImplementation "androidx.test.ext:junit-ktx:$version_androidx_test_ext_kotlin_runner"
 }
