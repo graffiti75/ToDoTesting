@@ -76,4 +76,5 @@ dependencies {
     testImplementation "androidx.test:core-ktx:$version_androidx_test_core"
     testImplementation "org.robolectric:robolectric:$version_robolectric"
     testImplementation "androidx.test.ext:junit-ktx:$version_androidx_test_ext_kotlin_runner"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version_coroutines"
 }
