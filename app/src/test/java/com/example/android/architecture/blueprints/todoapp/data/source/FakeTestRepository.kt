@@ -31,7 +31,7 @@ class FakeTestRepository : TasksRepository {
 		TODO("Not yet implemented")
 	}
 
-	override fun observeTask(taskId: String): LiveData<Result<Task>> {
+	override fun observeTask(taskId: @JvmSuppressWildcards String?): LiveData<Result<Task>> {
 		TODO("Not yet implemented")
 	}
 

@@ -90,8 +90,8 @@ class DefaultTasksRepository constructor(
 		}
 	}
 
-	override fun observeTask(taskId: String): LiveData<Result<Task>> {
-		return tasksLocalDataSource.observeTask(taskId)
+	override fun observeTask(taskId: @JvmSuppressWildcards String?): LiveData<Result<Task>> {
+		return tasksLocalDataSource.observeTask(taskId!!)
 	}
 
 	private suspend fun updateTaskFromRemoteDataSource(taskId: String) {
