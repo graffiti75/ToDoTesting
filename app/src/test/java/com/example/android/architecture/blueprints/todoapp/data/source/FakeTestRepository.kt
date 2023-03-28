@@ -9,14 +9,18 @@ import kotlinx.coroutines.runBlocking
 class FakeTestRepository : TasksRepository {
 
 	var tasksServiceData: LinkedHashMap<String, Task> = LinkedHashMap()
+	private var shouldReturnError = false
 	private val observableTasks = MutableLiveData<Result<List<Task>>>()
 
 	override suspend fun getTasks(forceUpdate: Boolean): Result<List<Task>> {
-		TODO("Not yet implemented")
+		if (shouldReturnError) {
+			return Result.Error(Exception("Test exception"))
+		}
+		return Result.Success(tasksServiceData.values.toList())
 	}
 
 	override suspend fun refreshTasks() {
-		TODO("Not yet implemented")
+		observableTasks.value = getTasks()
 	}
 
 	override fun observeTasks(): LiveData<Result<List<Task>>> {
