@@ -19,6 +19,8 @@ buildscript {
         version_androidx_test_core = "1.5.0"
         version_robolectric = "4.3.1"
         version_coroutines = "1.6.4"
+        version_androidx_test_core = "1.5.0"
+        version_fragment_testing = "1.5.6"
     }
 
     repositories {

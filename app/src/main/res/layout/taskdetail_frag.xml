@@ -17,11 +17,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <import type="android.view.View" />
-
         <import type="android.widget.CompoundButton" />
-
         <variable
             name="viewmodel"
             type="com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailViewModel" />
@@ -31,7 +28,6 @@
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <com.example.android.architecture.blueprints.todoapp.ScrollChildSwipeRefreshLayout
             android:id="@+id/refresh_layout"
@@ -107,7 +103,6 @@
                         android:paddingTop="1dp"
                         android:text="@{viewmodel.task.description}"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
-
                 </RelativeLayout>
             </LinearLayout>
         </com.example.android.architecture.blueprints.todoapp.ScrollChildSwipeRefreshLayout>
@@ -121,6 +116,5 @@
             app:fabSize="normal"
             app:layout_anchor="@id/refresh_layout"
             app:layout_anchorGravity="bottom|right|end" />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
