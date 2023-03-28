@@ -23,7 +23,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
-import com.example.android.architecture.blueprints.todoapp.data.source.DefaultTasksRepository
+import com.example.android.architecture.blueprints.todoapp.TodoApplication
 import com.example.android.architecture.blueprints.todoapp.databinding.TaskdetailFragBinding
 import com.example.android.architecture.blueprints.todoapp.tasks.DELETE_RESULT_OK
 import com.example.android.architecture.blueprints.todoapp.util.setupRefreshLayout
@@ -40,7 +40,8 @@ class TaskDetailFragment : Fragment() {
 
     private val viewModel by viewModels<TaskDetailViewModel> {
         TaskDetailViewModel.TaskDetailViewModelFactory(
-            DefaultTasksRepository.getRepository(requireActivity().application)
+            (requireContext().applicationContext as TodoApplication)
+                .taskRepository
         )
     }
 
