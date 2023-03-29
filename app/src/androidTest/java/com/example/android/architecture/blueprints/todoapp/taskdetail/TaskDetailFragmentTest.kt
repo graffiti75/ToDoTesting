@@ -39,7 +39,6 @@ class TaskDetailFragmentTest {
 	fun activeTaskDetails_DisplayedInUi() = runTest {
 		// GIVEN - Add active (incomplete) task to the DB
 		val activeTask = Task("Active Task", "AndroidX Rocks", false)
-
 		repository.saveTask(activeTask)
 
 		// WHEN - Details fragment launched to display task
@@ -47,6 +46,27 @@ class TaskDetailFragmentTest {
 		launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 
 //		Thread.sleep(2000)
+
+		// THEN - Task details are displayed on the screen
+		// make sure that the title/description are both shown and correct
+		onView(withId(R.id.task_detail_title_text)).check(matches(isDisplayed()))
+		onView(withId(R.id.task_detail_title_text)).check(matches(withText("Active Task")))
+		onView(withId(R.id.task_detail_description_text)).check(matches(isDisplayed()))
+		onView(withId(R.id.task_detail_description_text)).check(matches(withText("AndroidX Rocks")))
+		// and make sure the "active" checkbox is shown unchecked
+		onView(withId(R.id.task_detail_complete_checkbox)).check(matches(isDisplayed()))
+		onView(withId(R.id.task_detail_complete_checkbox)).check(matches(not(isChecked())))
+	}
+
+	@Test
+	fun completedTaskDetails_DisplayedInUi() = runTest {
+		// GIVEN - Add completed task to the DB
+		val completedTask = Task("Completed Task", "AndroidX Rocks", true)
+		repository.saveTask(completedTask)
+
+		// WHEN - Details fragment launched to display task
+		val bundle = TaskDetailFragmentArgs(completedTask.id).toBundle()
+		launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme)
 
 		// THEN - Task details are displayed on the screen
 		// make sure that the title/description are both shown and correct
