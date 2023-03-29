@@ -7,7 +7,7 @@ buildscript {
         version_material = "1.8.0"
         version_gradle = '7.4.2'
         version_kotlin = "1.8.0"
-        version_lifecycle = "2.6.0"
+        version_lifecycle = "2.2.0"
         version_navigation = '2.5.3'
         version_swipe_refresh = "1.1.0"
         version_room = "2.5.0"

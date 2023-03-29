@@ -58,6 +58,7 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
@@ -67,6 +68,9 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
     androidTestImplementation "junit:junit:$version_junit"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version_coroutines"
+    // Testing code for more advanced views such as the DatePicker and RecyclerView.
+    // It also contains accessibility checks and a class called CountingIdlingResource.
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$version_espresso"
     // Testing code should not be included in the main code.
     // Once https://issuetracker.google.com/128612536 is fixed this can be fixed.
     debugImplementation "androidx.fragment:fragment-testing:$version_fragment_testing"
