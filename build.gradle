@@ -21,6 +21,8 @@ buildscript {
         version_coroutines = "1.6.4"
         version_androidx_test_core = "1.5.0"
         version_fragment_testing = "1.5.6"
+        version_dex_maker = "2.28.3"
+        version_mockito = "5.2.0"
     }
 
     repositories {

@@ -71,6 +71,9 @@ dependencies {
     // Testing code for more advanced views such as the DatePicker and RecyclerView.
     // It also contains accessibility checks and a class called CountingIdlingResource.
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$version_espresso"
+    // Mockito.
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$version_dex_maker"
+    androidTestImplementation "org.mockito:mockito-core:$version_mockito"
     // Testing code should not be included in the main code.
     // Once https://issuetracker.google.com/128612536 is fixed this can be fixed.
     debugImplementation "androidx.fragment:fragment-testing:$version_fragment_testing"
