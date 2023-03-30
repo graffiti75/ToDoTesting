@@ -2,23 +2,22 @@ package com.example.android.architecture.blueprints.todoapp.tasks
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.android.architecture.blueprints.todoapp.Event
+import com.example.android.architecture.blueprints.todoapp.MainCoroutineRule
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.FakeTestRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class TasksViewModelTest {
 
-	val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+	@get:Rule
+	var mainCoroutineRule = MainCoroutineRule()
 
 	// Use a fake repository to be injected into the viewmodel
 	private lateinit var tasksRepository: FakeTestRepository
@@ -40,17 +39,6 @@ class TasksViewModelTest {
 		tasksRepository.addTasks(task1, task2, task3)
 
 		tasksViewModel = TasksViewModel(tasksRepository)
-	}
-
-	@Before
-	fun setupDispatcher() {
-		Dispatchers.setMain(testDispatcher)
-	}
-
-	@After
-	fun tearDownDispatcher() {
-		Dispatchers.resetMain()
-		testDispatcher.cleanupTestCoroutines()
 	}
 
 	@Test
