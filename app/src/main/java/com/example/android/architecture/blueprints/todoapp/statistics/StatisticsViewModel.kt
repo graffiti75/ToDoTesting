@@ -16,6 +16,7 @@
 
 package com.example.android.architecture.blueprints.todoapp.statistics
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.android.architecture.blueprints.todoapp.data.Result
 import com.example.android.architecture.blueprints.todoapp.data.Result.Error
@@ -45,7 +46,14 @@ class StatisticsViewModel(private val tasksRepository: TasksRepository) : ViewMo
 	val completedTasksPercent: LiveData<Float> = stats.map { it?.completedTasksPercent ?: 0f }
 	val dataLoading: LiveData<Boolean> = _dataLoading
 	val error: LiveData<Boolean> = tasks.map { it is Error }
-	val empty: LiveData<Boolean> = tasks.map { (it as? Success)?.data.isNullOrEmpty() }
+//	val empty: LiveData<Boolean> = tasks.map { (it as? Success)?.data.isNullOrEmpty() }
+	//
+	val empty: LiveData<Boolean> = tasks.map {
+		val success = it as? Success
+		val dat = success?.data
+		dat.isNullOrEmpty()
+	} // I can't understand this line of code
+	//
 
 	fun refresh() {
 		_dataLoading.value = true

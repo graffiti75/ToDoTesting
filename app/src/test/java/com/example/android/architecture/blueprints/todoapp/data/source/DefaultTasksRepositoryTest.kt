@@ -44,7 +44,7 @@ class DefaultTasksRepositoryTest {
 	}
 
 	@Test
-	fun getTasks_requestsAllTasksFromRemoteDataSource() = mainCoroutineRule.runBlockingTest {
+	fun getTasks_requestsAllTasksFromRemoteDataSource() = runTest {
 		// When tasks are requested from the tasks repository
 		val tasks = tasksRepository.getTasks(true) as Result.Success
 
