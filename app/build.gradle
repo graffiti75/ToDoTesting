@@ -28,9 +28,21 @@ android {
     }
 
     // Enables data binding.
-    buildFeatures {
-        dataBinding true
+    dataBinding {
+        enabled = true
+        enabledForTests = true
     }
+
+//    buildFeatures {
+//        dataBinding true
+//    }
+
+    // Always show the result of every unit test when running via command line, even if it passes.
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -79,6 +91,8 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:$version_fragment_testing"
     implementation "androidx.test:core:$version_androidx_test_core"
     androidTestImplementation "androidx.arch.core:core-testing:$version_arch_testing"
+
+    implementation "androidx.test.espresso:espresso-idling-resource:$version_espresso"
 
     // ===== AndroidX Test - JVM testing =====
     testImplementation "androidx.test:core-ktx:$version_androidx_test_core"
